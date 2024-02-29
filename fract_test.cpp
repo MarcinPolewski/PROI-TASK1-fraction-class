@@ -1,7 +1,6 @@
 #include "fract.h"
 #include <iostream>
 
-
 int main()
 {
     {
@@ -154,7 +153,7 @@ int main()
 
         if (f1.num() != 5 && f1.denom() != 6)
             std::cerr << "Error, wrong addition result!\n";
-        f2.print(std::cout);
+        f1.print(std::cout);
         std::cout << '\n';
     }
 
@@ -166,7 +165,7 @@ int main()
 
         if (f1.num() != 0 && f1.denom() != 1)
             std::cerr << "Error, wrong addition result!\n";
-        f2.print(std::cout);
+        f1.print(std::cout);
         std::cout << '\n';
     }
 
@@ -178,7 +177,7 @@ int main()
 
         if (f1.num() != 1 && f1.denom() != 4)
             std::cerr << "Error, wrong addition result!\n";
-        f2.print(std::cout);
+        f1.print(std::cout);
         std::cout << '\n';
     }
 
@@ -190,7 +189,19 @@ int main()
 
         if (f1.num() != 1 && f1.denom() != 4)
             std::cerr << "Error, wrong addition result!\n";
-        f2.print(std::cout);
+        f1.print(std::cout);
+        std::cout << '\n';
+    }
+
+    {
+        fract f1(1, 4);
+        fract f2(1, 4);
+
+        f1.add(f2);
+
+        if (f1.num() != 1 && f1.denom() != 2)
+            std::cerr << "Error, wrong addition result!\n";
+        f1.print(std::cout);
         std::cout << '\n';
     }
 

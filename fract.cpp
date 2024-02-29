@@ -44,11 +44,13 @@ void fract::add(const fract &right)
 {
     unsigned int commonDenom = lcm(denominator, right.denom());
 
-    int leftNumerator = commonDenom / denominator;
-    int rightNumerator = commonDenom / right.denom();
+    int leftNumerator = (commonDenom / denominator) * numerator;
+    int rightNumerator = (commonDenom / right.denom()) * right.num();
 
     numerator = leftNumerator + rightNumerator;
     denominator = commonDenom;
+
+    reduceFraction();
 }
 
 void fract::reduceFraction()
