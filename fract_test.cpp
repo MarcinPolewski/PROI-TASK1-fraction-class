@@ -285,6 +285,63 @@ int main()
         std::cout << '\n';
     }
 
+    // testing prod
+    std::cerr << "prod() tests:\n";
+    {
+        fract f1(2, 3);
+        fract f2(2, 4);
+        fract f3;
+        f3 = f1.prod(f2);
+
+        if (f3.num() != 1 || f3.denom() != 3)
+        {
+            std::cerr << "Error, wron prod() result\n";
+        }
+        f3.print(std::cout);
+        std::cout << '\n';
+    }
+
+    {
+        fract f1(2, 3);
+        fract f2(-2, 4);
+        fract f3;
+        f3 = f1.prod(f2);
+
+        if (f3.num() != -1 || f3.denom() != 3)
+        {
+            std::cerr << "Error, wron prod() result\n";
+        }
+        f3.print(std::cout);
+        std::cout << '\n';
+    }
+
+    {
+        fract f1(-2, 3);
+        fract f2(-2, 4);
+        fract f3;
+        f3 = f1.prod(f2);
+
+        if (f3.num() != 1 || f3.denom() != 3)
+        {
+            std::cerr << "Error, wron prod() result\n";
+        }
+        f3.print(std::cout);
+        std::cout << '\n';
+    }
+
+    {
+        fract f1(1, 3);
+        fract f2(1, 4);
+        fract f3;
+        f3 = f1.prod(f2);
+
+        if (f3.num() != 1 || f3.denom() != 12)
+        {
+            std::cerr << "Error, wron prod() result\n";
+        }
+        f3.print(std::cout);
+        std::cout << '\n';
+    }
     std::cout << std::endl;
     return 0;
 }
