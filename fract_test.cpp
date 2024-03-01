@@ -85,7 +85,7 @@ int main()
         fract f1(1, 2);
         fract f2 = f1.neg();
 
-        if (f2.num() != -1 or f2.denom() != 2)
+        if (f2.num() != -1 || f2.denom() != 2)
         {
             std::cerr << "Error, invalid fraction\n";
         }
@@ -97,7 +97,7 @@ int main()
         fract f1(-1, 2);
         fract f2 = f1.neg();
 
-        if (f2.num() != 1 or f2.denom() != 2)
+        if (f2.num() != 1 || f2.denom() != 2)
         {
             std::cerr << "Error, invalid fraction\n";
         }
@@ -109,7 +109,7 @@ int main()
         fract f1(0, 2);
         fract f2 = f1.neg();
 
-        if (f2.num() != 0 or f2.denom() != 1)
+        if (f2.num() != 0 || f2.denom() != 1)
         {
             std::cerr << "Error, invalid fraction\n";
         }
@@ -144,14 +144,14 @@ int main()
     }
 
     // testing add
-    std::cerr << "add tests:\n";
+    std::cerr << "add() tests:\n";
     {
         fract f1(1, 2);
         fract f2(1, 3);
 
         f1.add(f2);
 
-        if (f1.num() != 5 && f1.denom() != 6)
+        if (f1.num() != 5 || f1.denom() != 6)
             std::cerr << "Error, wrong addition result!\n";
         f1.print(std::cout);
         std::cout << '\n';
@@ -163,7 +163,7 @@ int main()
 
         f1.add(f2);
 
-        if (f1.num() != 0 && f1.denom() != 1)
+        if (f1.num() != 0 || f1.denom() != 1)
             std::cerr << "Error, wrong addition result!\n";
         f1.print(std::cout);
         std::cout << '\n';
@@ -175,7 +175,7 @@ int main()
 
         f1.add(f2);
 
-        if (f1.num() != 1 && f1.denom() != 4)
+        if (f1.num() != 1 || f1.denom() != 4)
             std::cerr << "Error, wrong addition result!\n";
         f1.print(std::cout);
         std::cout << '\n';
@@ -187,7 +187,7 @@ int main()
 
         f1.add(f2);
 
-        if (f1.num() != 1 && f1.denom() != 4)
+        if (f1.num() != -3 || f1.denom() != 4)
             std::cerr << "Error, wrong addition result!\n";
         f1.print(std::cout);
         std::cout << '\n';
@@ -199,8 +199,88 @@ int main()
 
         f1.add(f2);
 
-        if (f1.num() != 1 && f1.denom() != 2)
+        if (f1.num() != 1 || f1.denom() != 2)
             std::cerr << "Error, wrong addition result!\n";
+        f1.print(std::cout);
+        std::cout << '\n';
+    }
+
+    // testing sum()
+    std::cerr << "sum() tests:\n";
+    {
+        fract f1(-1, 2);
+        fract f2(1, 2);
+
+        fract f3 = f1.sum(f2);
+        if (f3.num() != 0 || f3.denom() != 1)
+        {
+            std::cerr << "Error, wrong sum result\n";
+        }
+        f3.print(std::cout);
+        std::cout << '\n';
+    }
+    {
+        fract f1(1, 4);
+        fract f2(1, 4);
+
+        fract f3 = f1.sum(f2);
+        if (f3.num() != 1 || f3.denom() != 2)
+        {
+            std::cerr << "Error, wrong sum result\n";
+        }
+        f3.print(std::cout);
+        std::cout << '\n';
+    }
+    {
+        fract f1(1, 2);
+        fract f2(-1, 4);
+
+        fract f3 = f1.sum(f2);
+        if (f3.num() != 1 || f3.denom() != 4)
+        {
+            std::cerr << "Error, wrong sum result\n";
+        }
+        f3.print(std::cout);
+        std::cout << '\n';
+    }
+
+    // testing mul()
+    std::cerr << "mul() tests:\n";
+    {
+        fract f1(2, 3);
+        fract f2(3, 4);
+
+        f1.mul(f2);
+        if (f1.num() != 1 || f1.denom() != 2)
+        {
+            std::cerr << "Error, wrong mul() result\n";
+        }
+        f1.print(std::cout);
+        std::cout << '\n';
+    }
+
+    {
+        fract f1(-2, 3);
+        fract f2(3, 4);
+
+        f1.mul(f2);
+        if (f1.num() != -1 || f1.denom() != 2)
+        {
+            std::cerr << "Error, wrong mul() result\n";
+        }
+        f1.print(std::cout);
+        std::cout << '\n';
+    }
+
+    {
+        fract f1(-1, 3);
+        fract f2(-1, 4);
+
+        f1.mul(f2);
+        if (f1.num() != 1 || f1.denom() != 12)
+        {
+            std::cerr << "Error, wrong mul() result\n";
+        }
         f1.print(std::cout);
         std::cout << '\n';
     }
