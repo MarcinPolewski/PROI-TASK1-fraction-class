@@ -3,12 +3,7 @@
 fract::fract(int num, unsigned int denom)
     : numerator(num), denominator(denom)
 {
-    unsigned int divisor = gcd(numerator, denominator);
-    if (divisor > 1)
-    {
-        numerator /= divisor;
-        denominator /= divisor;
-    }
+    reduceFraction();
 }
 
 int fract::num() const
@@ -53,10 +48,30 @@ void fract::add(const fract &right)
     reduceFraction();
 }
 
+fract fract::sum(const fract &right) const
+{
+    // use add function
+    fract result(numerator, denominator);
+    result.add(right);
+    return result;
+}
+
+void fract::mul(const fract &right)
+{
+    // mltiplication of two fractions
+    numerator *= right.num();
+    denominator *= right.denom();
+
+    reduceFraction();
+}
+
 void fract::reduceFraction()
 {
     // skracanie ułamka ?
-    unsigned int divisor = gcd(numerator, denominator);
+    // cannot be unsigned, because numerator is an int - we get wrong result
+    // casting it to int would do the trick
+    int divisor = gcd(abs(numerator), denominator);
+
     if (divisor > 1)
     {
         numerator /= divisor;
