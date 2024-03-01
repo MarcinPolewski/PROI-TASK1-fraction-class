@@ -65,6 +65,13 @@ void fract::mul(const fract &right)
     reduceFraction();
 }
 
+fract fract::prod(const fract &right) const
+{
+    fract result(numerator, denominator);
+    result.mul(right);
+    return result;
+}
+
 void fract::reduceFraction()
 {
     // skracanie ułamka ?
@@ -78,19 +85,6 @@ void fract::reduceFraction()
         denominator /= divisor;
     }
 }
-
-/* TODO:
--equals
--neg
--add
--sum
--mul <- multiply
--prod <- zwraca ułamek, bierze ułamek
-
-dodatkowo:
-- skroc ulamek
-
-*/
 
 unsigned int lcm(unsigned int a, unsigned int b)
 {
