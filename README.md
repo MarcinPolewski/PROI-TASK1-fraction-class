@@ -1,6 +1,9 @@
 # Z1-Marcin-Polewski
 
+## Project info 
 
+It seems that creating projects for PROI students is intented usage of these gitlab groups.
+Please upload your code here (together with the makefile).
 
 ## Getting started
 
