@@ -25,9 +25,7 @@ void fract::print(std::ostream &os) const
 
 bool fract::equal(const fract &right) const
 {
-    if (numerator == right.num() && denominator == right.denom())
-        return true;
-    return false;
+    return numerator == right.num() && denominator == right.denom();
 }
 
 fract fract::neg() const

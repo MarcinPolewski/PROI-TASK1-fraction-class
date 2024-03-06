@@ -38,6 +38,16 @@ int main()
             std::cerr << "Error, values are equal\n";
         }
     }
+    std::cerr << "equal() tests:\n";
+    {
+        fract f1(4, 8);
+        fract f2(2, 4);
+
+        if (!f1.equal(f2))
+        {
+            std::cerr << "Error, values are equal\n";
+        }
+    }
 
     {
         fract f1(1, 3);
